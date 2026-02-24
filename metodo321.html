@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Manifesto do Relógio - 50 Opções Interativas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .recipe-item { transition: all 0.2s ease; cursor: pointer; }
+        .recipe-item:hover { background-color: #f1f5f9; padding-left: 1rem; color: #059669; }
+        details summary::-webkit-details-marker { display:none; }
+        
+        /* Modal Animation */
+        #modal { display: none; }
+        #modal.active { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-emerald-600 text-white py-12 px-4 text-center shadow-lg sticky top-0 z-50">
+        <h1 class="text-3xl md:text-5xl font-bold mb-2">⏱️ O Manifesto do Relógio</h1>
+        <p class="text-emerald-100 text-lg opacity-90 italic">Toque numa opção para ver como preparar</p>
+        <div class="mt-4 flex justify-center gap-4 text-xs font-bold uppercase tracking-widest">
+            <a href="#combinacoes" class="bg-emerald-700 px-4 py-2 rounded-full hover:bg-emerald-800">50 Combinações</a>
+            <a href="#preparo" class="bg-emerald-700 px-4 py-2 rounded-full hover:bg-emerald-800">Bases</a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 space-y-16">
+
+        <!-- 1. O Manifesto Recap -->
+        <section class="grid grid-cols-3 gap-4">
+            <div class="bg-blue-500 text-white p-4 rounded-2xl text-center">
+                <div class="text-2xl font-bold">3</div>
+                <div class="text-[10px] uppercase font-bold">Energia</div>
+            </div>
+            <div class="bg-rose-500 text-white p-4 rounded-2xl text-center">
+                <div class="text-2xl font-bold">2</div>
+                <div class="text-[10px] uppercase font-bold">Vitalidade</div>
+            </div>
+            <div class="bg-amber-500 text-white p-4 rounded-2xl text-center">
+                <div class="text-2xl font-bold">1</div>
+                <div class="text-[10px] uppercase font-bold">Foco</div>
+            </div>
+        </section>
+
+        <!-- 2. Guia de Preparo Mestre -->
+        <section id="preparo" class="scroll-mt-32">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-kitchen-set text-emerald-600"></i> Receitas de Base (Fazer no Domingo)
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-emerald-700 mb-2 underline">Muffins de Aveia (12 unid)</h3>
+                    <p class="text-sm text-slate-600">Liquidificador: 2 bananas + 2 ovos + 1 chávena aveia + 1 c. sopa mel + 1 c. chá fermento. Asse por 20min a 180°C. Congele.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-emerald-700 mb-2 underline">Panqueca Rápida</h3>
+                    <p class="text-sm text-slate-600">Amasse 1 banana + 1 ovo. Frigideira antiaderente. Grelhe 2 min de cada lado. Deixe arrefecer antes de guardar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. As 50 Combinações Interativas -->
+        <section id="combinacoes" class="scroll-mt-32">
+            <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                <i class="fa-solid fa-layer-group text-emerald-600"></i> Cardápio 3-2-1 Interativo
+            </h2>
+            <p class="text-sm text-slate-500 mb-6 italic">Clique em qualquer item para ver as instruções de montagem.</p>
+
+            <div class="space-y-4">
+                <!-- Categoria Sanduíches -->
+                <details open class="group bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <summary class="p-4 cursor-pointer font-bold flex justify-between items-center bg-slate-50 text-blue-700">
+                        <span><i class="fa-solid fa-bread-slice mr-2"></i> Sanduíches e Wraps</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-50 p-2" id="sandwich-list">
+                        <!-- Itens gerados via script para manter o código limpo -->
+                    </div>
+                </details>
+
+                <!-- Categoria Muffins -->
+                <details class="group bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <summary class="p-4 cursor-pointer font-bold flex justify-between items-center bg-slate-50 text-rose-700">
+                        <span><i class="fa-solid fa-cookie mr-2"></i> Muffins e Assados</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-50 p-2" id="muffin-list"></div>
+                </details>
+
+                <!-- Categoria Snacks -->
+                <details class="group bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <summary class="p-4 cursor-pointer font-bold flex justify-between items-center bg-slate-50 text-amber-700">
+                        <span><i class="fa-solid fa-seedling mr-2"></i> Milho e Snacks</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="divide-y divide-slate-50 p-2" id="snack-list"></div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Dicas de Conservação -->
+        <section class="bg-slate-800 text-white p-8 rounded-3xl">
+            <h3 class="text-emerald-400 font-bold mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved"></i> Como nada fica murcho?
+            </h3>
+            <ul class="text-sm space-y-3 text-slate-300">
+                <li><strong class="text-white">Isolamento:</strong> Use potes com divisórias. O crocante (sementes) nunca deve tocar na fruta.</li>
+                <li><strong class="text-white">Arrefecimento:</strong> Nunca feche o pote com o pão ou milho ainda quente. O vapor amolece tudo.</li>
+                <li><strong class="text-white">Papel Toalha:</strong> Coloque uma folha no fundo do pote de frutas para absorver o excesso de sumo.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Modal de Detalhes -->
+    <div id="modal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-circle-xmark text-2xl"></i>
+            </button>
+            <div id="modal-header" class="p-6 text-white bg-emerald-600">
+                <span id="modal-category" class="text-[10px] uppercase font-black bg-white/20 px-2 py-1 rounded">Categoria</span>
+                <h3 id="modal-title" class="text-xl font-bold mt-2 leading-tight">Título da Receita</h3>
+            </div>
+            <div class="p-6 space-y-6">
+                <div class="flex gap-2">
+                    <div id="m-e" class="flex-1 p-2 rounded-lg bg-blue-50 text-blue-700 text-[10px] font-bold text-center border border-blue-100 italic">Energia</div>
+                    <div id="m-v" class="flex-1 p-2 rounded-lg bg-rose-50 text-rose-700 text-[10px] font-bold text-center border border-rose-100 italic">Vitalidade</div>
+                    <div id="m-f" class="flex-1 p-2 rounded-lg bg-amber-50 text-amber-700 text-[10px] font-bold text-center border border-amber-100 italic">Foco</div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles text-emerald-500"></i> Modo de Preparo (2 min)
+                    </h4>
+                    <ul id="modal-steps" class="text-sm text-slate-600 space-y-3 list-disc pl-4">
+                        <!-- Gerado via JS -->
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl text-[11px] text-slate-500 italic">
+                    <strong>Dica Pro:</strong> Se preparar à noite, utilize a "Barreira de Gordura" para manter o pão fresco.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const recipes = {
+            sandwiches: [
+                { id: "01", name: "Mini Pão Integral + Frango + Amêndoas", e: "Pão Integral", v: "Cubos Frango", f: "Amêndoas", steps: ["Passe uma camada fina de requeijão no pão (barreira).", "Adicione o frango temperado e desfiado.", "Coloque as amêndoas num saquinho ou divisória para manter a crocância."] },
+                { id: "02", name: "Wrap de Rap10 + Morangos + Coco", e: "Wrap Rap10", v: "Morangos", f: "Coco Seco", steps: ["Aqueça o wrap 30s na frigideira para flexibilidade.", "Passe cream cheese.", "Coloque as fatias de morango e finalize com lascas de coco."] },
+                { id: "03", name: "Pão de Forma + Queijo + Maçã + Nozes", e: "Pão Forma", v: "Queijo + Maçã", f: "Nozes", steps: ["Use o Banho Salino na maçã na noite anterior.", "Passe manteiga no pão até as bordas.", "Monte o queijo e a maçã por cima."] },
+                { id: "04", name: "Bisnaguinha + Ovo + Uvas + Girassol", e: "Bisnaguinha", v: "Ovo Codorna", f: "Girassol", steps: ["Corte a bisnaguinha ao meio.", "Seque bem os ovos de codorna com papel toalha antes de colocar.", "Mande as sementes separadas."] },
+                { id: "05", name: "Pão Árabe + Homus + Cenoura + Caju", e: "Pão Árabe", v: "Cenoura", f: "Cast. Caju", steps: ["Corte o pão em triângulos.", "Passe o homus (pasta de grão) no pão.", "Os palitos de cenoura servem para mergulhar no homus."] },
+                { id: "06", name: "Croissant + Queijo + Pêra + Pistache", e: "Croissant", v: "Pêra + Queijo", f: "Pistache", steps: ["Abra o croissant.", "Coloque a pêra (também vale o banho salino).", "O queijo deve ser fatiado fino."] },
+                { id: "07", name: "Wrap de Tapioca + Frango + Manga + Chia", e: "Tapioca", v: "Frango + Manga", f: "Chia", steps: ["Prepare a tapioca fina.", "Recheie com frango frio.", "A manga em cubos dá o toque de frescura."] },
+                { id: "11", name: "Pão de Queijo + Uvas + Salame", e: "Pão Queijo", v: "Uvas", f: "Salame", steps: ["Tire o pão de queijo do freezer e coloque direto na lancheira.", "O salame deve estar em fatias ou cubos pequenos."] },
+                { id: "12", name: "Sanduíche Atum + Tomate + Sementes", e: "Pão Integral", v: "Atum + Tomate", f: "Mix Sementes", steps: ["Misture atum com um pouco de iogurte natural.", "Passe no pão.", "O tomate cereja deve ir inteiro para não soltar água."] }
+            ],
+            muffins: [
+                { id: "16", name: "Muffin de Banana + Iogurte + Castanhas", e: "Muffin Banana", v: "Iogurte", f: "Castanhas", steps: ["Muffin sai congelado do freezer.", "O iogurte deve ir num pote térmico se possível.", "Castanhas no topo do iogurte na hora de comer."] },
+                { id: "17", name: "Bolo de Cenoura + Ovo Codorna + Passas", e: "Bolo Cenoura", v: "Ovo Codorna", f: "Uva Passa", steps: ["Corte uma fatia do bolo feito no domingo.", "Lave os ovos de codorna e seque.", "Use as passas para adoçar naturalmente."] },
+                { id: "20", name: "Bolo de Cacau + Morangos + Amendoim", e: "Bolo Cacau", v: "Morangos", f: "P. Amendoim", steps: ["Coloque uma colher de pasta de amendoim num mini potinho.", "Morangos inteiros duram mais que cortados.", "O bolo descongela em 2 horas."] }
+            ],
+            snacks: [
+                { id: "31", name: "Milho Cozido + Ovo Codorna + Pará", e: "Milho", v: "Ovo Codorna", f: "Cast. Pará", steps: ["Cozinhe o milho, debulhe ou mande a espiga cortada em 3.", "Adicione os ovos cozidos (descascados).", "Uma castanha do Pará por dia é o ideal."] },
+                { id: "32", name: "Pipoca + Queijo Cubos + Maçã", e: "Pipoca", v: "Queijo + Maçã", f: "Gordura Queijo", steps: ["Estoure a pipoca com pouco óleo e sal.", "Mande em saco de papel para não murchar.", "Queijo em cubos ajuda na saciedade."] },
+                { id: "33", name: "Cuscuz + Banana + Sementes", e: "Cuscuz", v: "Banana", f: "Girassol", steps: ["Cuscuz hidratado com água e sal.", "Banana com casca (escreva o nome da criança na casca com palito!).", "Sementes dão o 'croc'."] }
+            ]
+        };
+
+        function renderList(listId, items, categoryName) {
+            const container = document.getElementById(listId);
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "recipe-item p-3 text-sm flex items-center justify-between";
+                div.innerHTML = `<span><strong>${item.id}.</strong> ${item.name}</span> <i class="fa-solid fa-chevron-right text-[10px] opacity-30"></i>`;
+                div.onclick = () => openModal(item, categoryName);
+                container.appendChild(div);
+            });
+        }
+
+        function openModal(item, category) {
+            document.getElementById('modal-title').innerText = item.name;
+            document.getElementById('modal-category').innerText = category;
+            document.getElementById('m-e').innerText = "3: " + item.e;
+            document.getElementById('m-v').innerText = "2: " + item.v;
+            document.getElementById('m-f').innerText = "1: " + item.f;
+            
+            const stepsUl = document.getElementById('modal-steps');
+            stepsUl.innerHTML = "";
+            item.steps.forEach(step => {
+                const li = document.createElement('li');
+                li.innerText = step;
+                stepsUl.appendChild(li);
+            });
+
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Initialize
+        renderList('sandwich-list', recipes.sandwiches, "Sanduíches");
+        renderList('muffin-list', recipes.muffins, "Muffins");
+        renderList('snack-list', recipes.snacks, "Snacks");
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal')) closeModal();
+        }
+    </script>
+</body>
+</html>
