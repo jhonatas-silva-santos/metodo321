@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts: Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -30,7 +30,7 @@
             line-height: 1.6;
         }
 
-        /* --- Global Styles --- */
+        /* --- Estilos Globais --- */
         h1, h2, h3 {
             font-weight: 800;
         }
@@ -60,9 +60,10 @@
             min-height: 250px;
             margin-bottom: 20px;
             border: 2px dashed #ddd;
+            overflow: hidden;
         }
 
-        /* --- Hero Section --- */
+        /* --- Secção Hero --- */
         .hero-section {
             background-color: var(--mint-green);
             padding: 100px 0 60px;
@@ -82,7 +83,7 @@
             opacity: 0.9;
         }
 
-        /* --- Stat Section --- */
+        /* --- Secção de Estatística --- */
         .stat-box {
             background-color: var(--soft-orange-light);
             border-left: 8px solid var(--soft-orange);
@@ -92,14 +93,14 @@
             box-shadow: var(--shadow-soft);
         }
 
-        /* --- 3-2-1 Method Cards --- */
+        /* --- Cartões do Método 3-2-1 --- */
         .method-number {
             font-size: 3rem;
             color: var(--soft-orange);
             font-weight: 800;
         }
 
-        /* --- Comparison Table --- */
+        /* --- Tabela de Comparação --- */
         .table-container {
             overflow-x: auto;
         }
@@ -127,7 +128,7 @@
         .table-custom tr td:first-child { border-top-left-radius: 15px; border-bottom-left-radius: 15px; }
         .table-custom tr td:last-child { border-top-right-radius: 15px; border-bottom-right-radius: 15px; }
 
-        /* --- CTA Section & Pulsing Button --- */
+        /* --- Secção CTA & Botão Pulsante --- */
         .cta-section {
             background-color: var(--mint-dark);
             color: white;
@@ -137,7 +138,7 @@
 
         .btn-pulse {
             background-color: var(--soft-orange);
-            color: white;
+            color: white !important;
             font-size: 1.5rem;
             font-weight: 800;
             padding: 20px 40px;
@@ -152,7 +153,7 @@
 
         .btn-pulse:hover {
             background-color: #f5a623;
-            color: white;
+            transform: scale(1.02);
         }
 
         @keyframes pulse {
@@ -161,7 +162,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 183, 77, 0); }
         }
 
-        /* --- FAQ --- */
+        /* --- Perguntas Frequentes (FAQ) --- */
         .accordion-item {
             border: none;
             margin-bottom: 10px;
@@ -179,16 +180,17 @@
             color: var(--mint-dark);
         }
 
-        /* Mobile Adjustments */
+        /* Ajustes para Dispositivos Móveis */
         @media (max-width: 768px) {
             .hero-title { font-size: 1.8rem; }
             .section-padding { padding: 50px 0; }
+            .btn-pulse { font-size: 1.1rem; padding: 15px 25px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
+    <!-- Cabeçalho Hero -->
     <header class="hero-section text-center">
         <div class="container">
             <div class="row justify-content-center">
@@ -197,15 +199,15 @@
                     <h2 class="hero-subtitle mb-4">Tire da sua mente a preocupação do "o que vou mandar amanhã?" e resolva a semana inteira em minutos.</h2>
                     
                     <div class="img-placeholder mx-auto" style="max-width: 500px;">
-                        <!-- [Personagem 3D: Maçã Feliz segurando uma lancheira] -->
-                        <img src="https://via.placeholder.com/400x400?text=Personagem+3D+Fruta+Animada" alt="Personagem 3D Fruta" class="img-fluid">
+                        <!-- Imagem do personagem 3D de fruta atualizada -->
+                        <img src="fruta.jpg" alt="Personagem 3D Maçã" class="img-fluid" onerror="this.src='https://via.placeholder.com/400x400?text=fruta.jpg'">
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Shock Stat Section -->
+    <!-- Secção de Estatística de Impacto -->
     <section class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -220,7 +222,7 @@
         </div>
     </section>
 
-    <!-- Rede de Apoio Section -->
+    <!-- Secção Rede de Apoio -->
     <section class="section-padding">
         <div class="container text-center">
             <h2 class="mb-5">A Sua Nova Rede de Apoio</h2>
@@ -232,15 +234,15 @@
                 </div>
                 <div class="col-md-6">
                     <div class="img-placeholder">
-                        <!-- [Personagem 3D: Suco de Laranja Amigável fazendo sinal de positivo] -->
-                        <img src="https://via.placeholder.com/350x350?text=Personagem+3D+Suco+Vilão+vencido" alt="Personagem Suco" class="img-fluid">
+                        <!-- Imagem do personagem 3D de suco atualizada -->
+                        <img src="suco.jpg" alt="Personagem Suco" class="img-fluid" onerror="this.src='https://via.placeholder.com/350x350?text=suco.jpg'">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Method (3-2-1 Cards) -->
+    <!-- O Método (Cartões 3-2-1) -->
     <section class="section-padding bg-light">
         <div class="container">
             <h2 class="text-center mb-5">O Método (Lógica 3-2-1)</h2>
@@ -270,7 +272,7 @@
         </div>
     </section>
 
-    <!-- Comparison Table -->
+    <!-- Tabela Comparativa -->
     <section class="section-padding">
         <div class="container">
             <h2 class="text-center mb-5">O Contraste: Realidade vs. Método</h2>
@@ -301,14 +303,15 @@
         </div>
     </section>
 
-    <!-- Offer Section -->
+    <!-- Secção de Oferta -->
     <section class="section-padding text-center">
         <div class="container">
             <div class="cta-section">
                 <h2 class="mb-4">Quanto custa sua paz mental de manhã?</h2>
                 <p class="fs-4 mb-2">Acesso imediato ao Método 3-2-1 por apenas:</p>
                 <div class="display-3 fw-bold mb-4" style="color: var(--soft-orange);">R$ 19,66</div>
-                <a href="#" class="btn-pulse mt-3">
+                <!-- Botão de Checkout -->
+                <a href="https://checkout.acessoreservado.com.br/checkout/v4/w18QpA6gRzCP3xB93A6N" class="btn-pulse mt-3" target="_blank">
                     QUERO GARANTIR MINHA LANCHEIRA AGORA
                 </a>
                 <p class="mt-4 small"><i class="fas fa-lock me-2"></i> Pagamento seguro e acesso instantâneo.</p>
@@ -316,7 +319,7 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Secção de FAQ -->
     <section class="section-padding bg-light">
         <div class="container">
             <h2 class="text-center mb-5">Perguntas Frequentes (FAQ)</h2>
