@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método 3-2-1 - Lancheiras Saudáveis em 5 Minutos</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --mint-green: #eafaf1;
+            --mint-dark: #4db6ac;
+            --soft-orange: #ffb74d;
+            --soft-orange-light: #fff3e0;
+            --text-dark: #37474f;
+            --white: #ffffff;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* --- Global Styles --- */
+        h1, h2, h3 {
+            font-weight: 800;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .premium-card {
+            background: var(--white);
+            border: none;
+            border-radius: 25px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .img-placeholder {
+            background: #f0f0f0;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+            margin-bottom: 20px;
+            border: 2px dashed #ddd;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background-color: var(--mint-green);
+            padding: 100px 0 60px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            color: var(--mint-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* --- Stat Section --- */
+        .stat-box {
+            background-color: var(--soft-orange-light);
+            border-left: 8px solid var(--soft-orange);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: -40px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* --- 3-2-1 Method Cards --- */
+        .method-number {
+            font-size: 3rem;
+            color: var(--soft-orange);
+            font-weight: 800;
+        }
+
+        /* --- Comparison Table --- */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .table-custom {
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+
+        .table-custom th {
+            border: none;
+            background-color: var(--mint-dark);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .table-custom td {
+            background: #f9f9f9;
+            padding: 20px;
+            border: none;
+            vertical-align: middle;
+        }
+
+        .table-custom tr td:first-child { border-top-left-radius: 15px; border-bottom-left-radius: 15px; }
+        .table-custom tr td:last-child { border-top-right-radius: 15px; border-bottom-right-radius: 15px; }
+
+        /* --- CTA Section & Pulsing Button --- */
+        .cta-section {
+            background-color: var(--mint-dark);
+            color: white;
+            border-radius: 50px;
+            padding: 60px 20px;
+        }
+
+        .btn-pulse {
+            background-color: var(--soft-orange);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            padding: 20px 40px;
+            border-radius: 50px;
+            border: none;
+            text-transform: uppercase;
+            box-shadow: 0 0 0 0 rgba(255, 183, 77, 0.7);
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-pulse:hover {
+            background-color: #f5a623;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 183, 77, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(255, 183, 77, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 183, 77, 0); }
+        }
+
+        /* --- FAQ --- */
+        .accordion-item {
+            border: none;
+            margin-bottom: 10px;
+            box-shadow: var(--shadow-soft);
+            border-radius: 15px !important;
+        }
+
+        .accordion-button {
+            border-radius: 15px !important;
+            font-weight: 600;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--mint-green);
+            color: var(--mint-dark);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 1.8rem; }
+            .section-padding { padding: 50px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title">Chega de quebrar a cabeça toda manhã: Monte lancheiras saudáveis e variadas em menos de 5 minutos com o Método 3-2-1.</h1>
+                    <h2 class="hero-subtitle mb-4">Tire da sua mente a preocupação do "o que vou mandar amanhã?" e resolva a semana inteira em minutos.</h2>
+                    
+                    <div class="img-placeholder mx-auto" style="max-width: 500px;">
+                        <!-- [Personagem 3D: Maçã Feliz segurando uma lancheira] -->
+                        <img src="https://via.placeholder.com/400x400?text=Personagem+3D+Fruta+Animada" alt="Personagem 3D Fruta" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shock Stat Section -->
+    <section class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="stat-box text-center">
+                    <p class="mb-0 fs-5">
+                        <i class="fas fa-exclamation-triangle text-danger me-2"></i>
+                        <strong>Você sabia que crianças rejeitam, em média, 30% dos itens enviados no improviso?</strong> 
+                        Pare de jogar dinheiro no lixo com frutas que voltam inteiras e recupere sua paz mental antes das 8h da manhã.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rede de Apoio Section -->
+    <section class="section-padding">
+        <div class="container text-center">
+            <h2 class="mb-5">A Sua Nova Rede de Apoio</h2>
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-start">
+                    <p class="fs-4 fw-bold text-mint">Transformamos a montagem das lancheiras em um processo lógico, simples e prático.</p>
+                    <p>Sabe aquela sensação de culpa ao abrir a geladeira e acabar mandando o <strong>"Suco Vilão"</strong> cheio de açúcar porque não deu tempo de pensar? Ou a frustração de ver a <strong>"Maçã Murcha"</strong> voltar intocada na mochila?</p>
+                    <p>Isso acaba hoje. O Método 3-2-1 é o guia que segura sua mão e elimina a carga mental de ser "criativa" todo santo dia.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="img-placeholder">
+                        <!-- [Personagem 3D: Suco de Laranja Amigável fazendo sinal de positivo] -->
+                        <img src="https://via.placeholder.com/350x350?text=Personagem+3D+Suco+Vilão+vencido" alt="Personagem Suco" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Method (3-2-1 Cards) -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">O Método (Lógica 3-2-1)</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="premium-card p-4 text-center h-100">
+                        <div class="method-number">3</div>
+                        <h3 class="h5">Categoria 3: A base nutritiva</h3>
+                        <p>Os pilares essenciais que garantem a energia e o crescimento, selecionados para serem práticos e rápidos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="premium-card p-4 text-center h-100">
+                        <div class="method-number">2</div>
+                        <h3 class="h5">Categoria 2: O fator de aceitação</h3>
+                        <p>O segredo para a lancheira não voltar cheia. Itens estratégicos que as crianças amam e que "puxam" o resto do lanche.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="premium-card p-4 text-center h-100">
+                        <div class="method-number">1</div>
+                        <h3 class="h5">Categoria 1: O toque de rapidez</h3>
+                        <p>Aquele item coringa que você monta em segundos e que dá o equilíbrio final visual e sensorial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">O Contraste: Realidade vs. Método</h2>
+            <div class="table-container">
+                <table class="table table-custom text-center">
+                    <thead>
+                        <tr>
+                            <th>Lancheira no Improviso</th>
+                            <th>Lancheira com Método 3-2-1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-times-circle text-danger me-2"></i> Alta carga mental e estresse matinal</td>
+                            <td><i class="fas fa-check-circle text-success me-2"></i> Paz de espírito e clareza total</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-times-circle text-danger me-2"></i> Desperdício de dinheiro (comida no lixo)</td>
+                            <td><i class="fas fa-check-circle text-success me-2"></i> Aproveitamento total e economia</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-times-circle text-danger me-2"></i> Sentimento de culpa constante</td>
+                            <td><i class="fas fa-check-circle text-success me-2"></i> Missão cumprida com orgulho</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="section-padding text-center">
+        <div class="container">
+            <div class="cta-section">
+                <h2 class="mb-4">Quanto custa sua paz mental de manhã?</h2>
+                <p class="fs-4 mb-2">Acesso imediato ao Método 3-2-1 por apenas:</p>
+                <div class="display-3 fw-bold mb-4" style="color: var(--soft-orange);">R$ 19,66</div>
+                <a href="#" class="btn-pulse mt-3">
+                    QUERO GARANTIR MINHA LANCHEIRA AGORA
+                </a>
+                <p class="mt-4 small"><i class="fas fa-lock me-2"></i> Pagamento seguro e acesso instantâneo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Perguntas Frequentes (FAQ)</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Eu realmente consigo montar em 5 minutos?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sim! O segredo está na lógica 3-2-1. Você não precisa inventar a roda, apenas seguir o grupo de alimentos que já deixamos pré-estabelecido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Serve para crianças que são "ruins de boca"?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Com certeza. A "Categoria 2" do método foca justamente no fator de aceitação, ajudando a introduzir novos alimentos de forma que a criança não os rejeite de cara.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Os ingredientes são caros ou difíceis de achar?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Pelo contrário. O método foi desenhado para ser usado com o que você já encontra no mercado do bairro. O foco é praticidade e economia real.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 text-muted">
+        <p>&copy; 2024 Método 3-2-1 - Maternidade Real & Saudável</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
